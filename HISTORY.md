@@ -1,5 +1,8 @@
 # History
 
+-   Better support malformed versions
+    -   Thanks to [Twi](https://github.com/cdwmhcc) for [issue #1](https://github.com/bevry/version-clean/issues/1#issuecomment-1825883435)
+
 ## v1.2.0 2023 November 25
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)

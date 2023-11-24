@@ -4,12 +4,12 @@
  */
 export default function versionClean(dirtyVersion: string | number): string {
 	let version = String(dirtyVersion)
-	// remove .x
-	version = version.replace(/\.x/g, '')
 	// replace everything that isn't relevant with a space, this ensures 1<2 becomes 1 2 rather than 12
 	version = version.replace(/[^0-9.]+/g, ' ')
+	// replace duplicate dots and trailing dots
+	version = version.replace(/\.\.+/g, '.').replace(/\. |\.$/g, ' ')
 	// return the first section that is relevant
-	const parts = version.split(/\s+/)
+	const parts = version.split(/ +/)
 	for (const part of parts) {
 		if (part) return part
 	}

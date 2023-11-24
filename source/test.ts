@@ -44,6 +44,15 @@ const fixtures: Array<[input: number | string, expected: string]> = [
 	[' 	>=v1.0.0-prerelease 	<2 	', '1.0.0'],
 	['>= v1.0.x-prerelease < 3', '1.0'],
 	['>= a b c', ''],
+	// invalid
+	['4.1.8.', '4.1.8'],
+	['4.1.8..', '4.1.8'],
+	['4.1.8.a', '4.1.8'],
+	['4.1.8.a.', '4.1.8'],
+	['4.1.8.xa', '4.1.8'],
+	['4.1.8.xa.', '4.1.8'],
+	['4.1.8.a.x', '4.1.8'],
+	['4.1.8.a.x.', '4.1.8'],
 ]
 
 kava.suite('version-clean', function (suite, test) {
