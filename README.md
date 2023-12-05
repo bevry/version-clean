@@ -58,7 +58,7 @@ See also [version-range](http://github.com/bevry/version-range) and [version-com
 <a href="https://deno.land" title="Deno is a secure runtime for JavaScript and TypeScript, it is an alternative for Node.js"><h3>Deno</h3></a>
 
 ``` typescript
-import pkg from 'https://unpkg.com/version-clean@^1.5.0/edition-deno/index.ts'
+import pkg from 'https://unpkg.com/version-clean@^1.6.0/edition-deno/index.ts'
 ```
 
 <h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
