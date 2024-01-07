@@ -1,6 +1,6 @@
 {
   "name": "version-clean",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "license": "Artistic-2.0",
   "description": "Turn a dirty version (such as v1, =1.0.x, >1.0 <2) into a clean version (1.0)",
   "homepage": "https://github.com/bevry/version-clean",
@@ -13,6 +13,7 @@
     "url": "https://github.com/bevry/version-clean/issues"
   },
   "keywords": [
+    "browser",
     "compare",
     "deno",
     "deno-edition",
@@ -28,6 +29,7 @@
     "less",
     "lt",
     "lte",
+    "module",
     "node",
     "node.js",
     "nodejs",
@@ -91,6 +93,8 @@
     "Andrew Nesbitt (https://nesbitt.io) (https://github.com/andrew): Software engineer and researcher",
     "Balsa <hello@balsa.com> (https://balsa.com) (https://github.com/balsa): We're Balsa, and we're building tools for builders.",
     "Codecov <hello-codecov@sentry.io> (https://codecov.io) (https://github.com/codecov): Empower developers with tools to improve code quality and testing.",
+    "Frontend Masters <support@frontendmasters.com> (https://FrontendMasters.com) (https://github.com/FrontendMasters) (https://thanks.dev/d/gh/FrontendMasters): The training platform for web app engineering skills – from front-end to full-stack! 🚀",
+    "Mr. Henry <hello@mrhenry.be> (https://mrhenry.be) (https://github.com/mrhenry)",
     "Poonacha Medappa (https://poonachamedappa.com) (https://github.com/km-Poonacha)",
     "Rob Morris <rob@prismatik.com.au> (https://github.com/Rob-Morris)",
     "Sentry (https://sentry.io) (https://github.com/getsentry): Real-time crash reporting for your web apps, mobile apps, and games.",
@@ -105,6 +109,7 @@
     "dr.dimitru (https://veliovgroup.com) (https://github.com/dr-dimitru)",
     "Elliott Ditman (https://elliottditman.com) (https://github.com/elliottditman)",
     "entroniq (https://gitlab.com/entroniq) (https://thanks.dev/d/gl/entroniq)",
+    "Frontend Masters <support@frontendmasters.com> (https://FrontendMasters.com) (https://github.com/FrontendMasters) (https://thanks.dev/d/gh/FrontendMasters)",
     "GitHub (https://github.com/about) (https://github.com/github)",
     "Hunter Beast (https://cryptoquick.com) (https://github.com/cryptoquick)",
     "Jean-Luc Geering (https://github.com/jlgeering) (https://opencollective.com/jlgeering) (https://twitter.com/jlgeering)",
@@ -113,7 +118,7 @@
     "Mohammed Shah <shah@idk.uno> (https://github.com/smashah) (https://thanks.dev/d/gh/smashah) (https://twitter.com/smashah)",
     "Mr. Henry <hello@mrhenry.be> (https://mrhenry.be) (https://github.com/mrhenry)",
     "Nermal <nermalcat69@skiff.com> (https://arjunaditya.vercel.app) (https://github.com/nermalcat69)",
-    "Pleo (https://www.pleo.io) (https://github.com/pleo-io)",
+    "Pleo (https://pleo.io) (https://github.com/pleo-io)",
     "Poonacha Medappa (https://poonachamedappa.com) (https://github.com/km-Poonacha)",
     "Rob Morris <rob@prismatik.com.au> (https://github.com/Rob-Morris)",
     "Robert de Forest <guitar.robot@gmail.com> (https://github.com/rdeforest)",
@@ -137,6 +142,20 @@
         "import"
       ],
       "engines": false
+    },
+    {
+      "description": "TypeScript compiled against ES2022 for web browsers with Import for modules",
+      "directory": "edition-browsers",
+      "entry": "index.js",
+      "tags": [
+        "compiled",
+        "javascript",
+        "import"
+      ],
+      "engines": {
+        "node": false,
+        "browsers": "defaults"
+      }
     },
     {
       "description": "TypeScript compiled against ES2022 for Node.js 6 || 8 || 10 || 12 || 14 || 16 || 18 || 20 || 21 with Require for modules",
@@ -205,7 +224,7 @@
       ],
       "engines": {
         "deno": true,
-        "browsers": false
+        "browsers": true
       }
     }
   ],
@@ -218,33 +237,41 @@
       "import": "./edition-es2022-esm/index.js",
       "default": "./index.cjs",
       "require": "./edition-es2022/index.js"
+    },
+    "browser": {
+      "types": "./edition-types/index.d.ts",
+      "import": "./edition-browsers/index.js"
     }
   },
   "deno": "edition-deno/index.ts",
+  "browser": "edition-browsers/index.js",
+  "module": "edition-browsers/index.js",
   "dependencies": {
-    "editions": "^6.20.0"
+    "editions": "^6.21.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
+    "@types/node": "^20.10.7",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
     "assert-helpers": "^11.12.0",
     "eslint": "^8.56.0",
-    "eslint-config-bevry": "^5.3.0",
+    "eslint-config-bevry": "^5.5.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
-    "kava": "^7.6.0",
-    "make-deno-edition": "^2.2.0",
+    "kava": "^7.9.0",
+    "make-deno-edition": "^2.3.0",
     "prettier": "^3.1.1",
-    "projectz": "^4.1.1",
-    "typedoc": "^0.25.4",
+    "projectz": "^4.2.0",
+    "typedoc": "^0.25.6",
     "typescript": "5.3.3",
-    "valid-directory": "^4.8.0"
+    "valid-directory": "^4.9.0",
+    "valid-module": "^2.6.0"
   },
   "scripts": {
     "our:clean": "rm -rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
-    "our:compile": "npm run our:compile:deno && npm run our:compile:edition-es2022 && npm run our:compile:edition-es2022-esm && npm run our:compile:edition-es5 && npm run our:compile:edition-types",
+    "our:compile": "npm run our:compile:deno && npm run our:compile:edition-browsers && npm run our:compile:edition-es2022 && npm run our:compile:edition-es2022-esm && npm run our:compile:edition-es5 && npm run our:compile:edition-types",
     "our:compile:deno": "make-deno-edition --attempt",
+    "our:compile:edition-browsers": "tsc --module ESNext --target ES2022 --outDir ./edition-browsers --project tsconfig.json && ( test ! -d edition-browsers/source || ( mv edition-browsers/source edition-temp && rm -rf edition-browsers && mv edition-temp edition-browsers ) )",
     "our:compile:edition-es2022": "tsc --module commonjs --target ES2022 --outDir ./edition-es2022 --project tsconfig.json && ( test ! -d edition-es2022/source || ( mv edition-es2022/source edition-temp && rm -rf edition-es2022 && mv edition-temp edition-es2022 ) ) && printf '%s' '{\"type\": \"commonjs\"}' > edition-es2022/package.json",
     "our:compile:edition-es2022-esm": "tsc --module ESNext --target ES2022 --outDir ./edition-es2022-esm --project tsconfig.json && ( test ! -d edition-es2022-esm/source || ( mv edition-es2022-esm/source edition-temp && rm -rf edition-es2022-esm && mv edition-temp edition-es2022-esm ) ) && printf '%s' '{\"type\": \"module\"}' > edition-es2022-esm/package.json",
     "our:compile:edition-es5": "tsc --module commonjs --target ES5 --outDir ./edition-es5 --project tsconfig.json && ( test ! -d edition-es5/source || ( mv edition-es5/source edition-temp && rm -rf edition-es5 && mv edition-temp edition-es5 ) ) && printf '%s' '{\"type\": \"commonjs\"}' > edition-es5/package.json",
@@ -263,8 +290,9 @@
     "our:setup": "npm run our:setup:install",
     "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
-    "our:verify": "npm run our:verify:eslint && npm run our:verify:prettier",
+    "our:verify": "npm run our:verify:eslint && npm run our:verify:module && npm run our:verify:prettier",
     "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/' --ignore-pattern '**/node_modules/' --ext .mjs,.js,.jsx,.ts,.tsx ./source",
+    "our:verify:module": "valid-module",
     "our:verify:prettier": "prettier --write .",
     "test": "node ./test.cjs"
   },
