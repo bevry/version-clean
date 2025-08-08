@@ -1,4 +1,4 @@
-import { equal, errorEqual } from 'assert-helpers'
+import { equal } from 'assert-helpers'
 import kava from 'kava'
 
 import versionClean from './index.js'
@@ -53,6 +53,10 @@ const fixtures: Array<[input: number | string, expected: string]> = [
 	['4.1.8.xa.', '4.1.8'],
 	['4.1.8.a.x', '4.1.8'],
 	['4.1.8.a.x.', '4.1.8'],
+	// trim
+	[' 1 ', '1'],
+	[' >=1.0 ', '1.0'],
+	[' 1.0 || 2.0 ', '1.0'],
 ]
 
 kava.suite('version-clean', function (suite, test) {

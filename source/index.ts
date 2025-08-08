@@ -1,6 +1,7 @@
 /**
- * Turn a dirty version (such as v1, =1.0.x, >1.0 <2) into a clean version (1.0)
- * @returns the clean version string if possible, otherwise an empty string
+ * Turn a dirty version (such as `v1`, `=1.0.x`, `>1.0 <2`) into a clean version (1.0)
+ * @param dirtyVersion The dirty version to clean
+ * @returns The clean version string if possible, otherwise an empty string
  */
 export default function versionClean(dirtyVersion: string | number): string {
 	let version = String(dirtyVersion)
@@ -11,7 +12,7 @@ export default function versionClean(dirtyVersion: string | number): string {
 	// return the first section that is relevant
 	const parts = version.split(/ +/)
 	for (const part of parts) {
-		if (part) return part
+		if (part) return part.trim()
 	}
 	// failed to parse
 	return ''
